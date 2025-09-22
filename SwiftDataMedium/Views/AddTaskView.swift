@@ -76,7 +76,7 @@ extension AddTaskView {
         let newTask = Task(title: newTaskTitle,
                            isCompleted: newTaskIsCompleted,
                            createdAt: newTaskCreatedAt,
-                           category: )
+                           category: newCategory)
         modelContext.insert(newTask)
         isAddTaskVisible = false
         dismiss()
