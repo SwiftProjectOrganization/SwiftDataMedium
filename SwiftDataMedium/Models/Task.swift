@@ -31,9 +31,9 @@ class Task {
 extension Task {
   var longTitle: String {
     if isCompleted == false {
-      "Status \(title): Not done"
+      "Task \(title):   Not done"
     } else {
-      "Status \(title): Done"
+      "Task \(title):   Done"
     }
   }
 }

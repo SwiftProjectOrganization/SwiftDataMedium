@@ -21,17 +21,44 @@ extension ContentView {
   }
 }
 
+extension ContentView {
+  private var sortedShortTermTasks: [Task] {
+    sortedTasks.filter { $0.category!.type == .shortTerm }
+  }
+}
+
+extension ContentView {
+  private var sortedLongTermTasks: [Task] {
+    sortedTasks.filter { $0.category!.type == .longTerm }
+  }
+}
+
 extension ContentView: View {
   var body: some View {
     NavigationStack {
-      List {
-        ForEach(sortedTasks) { task in
-          VStack {
-            NavigationLink(task.longTitle,
-                           value: task)
+      Section("Task lists:") {
+        Text("Short term tasks")
+          .foregroundStyle(.red)
+        List {
+          ForEach(sortedShortTermTasks) { task in
+            VStack {
+              NavigationLink(task.longTitle,
+                             value: task)
+            }
           }
+          .onDelete(perform: deleteTasks)
         }
-        .onDelete(perform: deleteTasks)
+        Text("Long term tasks")
+          .foregroundStyle(.green)
+        List {
+          ForEach(sortedLongTermTasks) { task in
+            VStack {
+              NavigationLink(task.longTitle,
+                             value: task)
+            }
+          }
+          .onDelete(perform: deleteTasks)
+        }
       }
       Button("Liquid Glass") {
           isLiquidGlassVisible = true

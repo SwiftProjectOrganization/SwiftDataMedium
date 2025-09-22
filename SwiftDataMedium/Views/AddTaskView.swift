@@ -14,7 +14,7 @@ struct AddTaskView {
   @State private var newTaskTitle: String = ""
   @State private var newTaskIsCompleted: Bool = false
   @State private var newTaskCreatedAt: Date = Date()
-  @State private var newCategory: Category = Category(type: .shortTerm)
+  @State private var newCategory: String = ""
   @Environment(\.scenePhase) private var scenePhase
   @FocusState private var focusField
   @Environment(\.dismiss) private var dismiss
@@ -32,7 +32,7 @@ extension AddTaskView: View {
       }
       Spacer()
       VStack {
-        HStack {
+        VStack {
           Spacer()
           TextField("Topic title", text: $newTaskTitle, axis: .vertical)
             .focused($focusField)
@@ -42,14 +42,17 @@ extension AddTaskView: View {
             .textFieldStyle(.roundedBorder)
             .border(Color.red,
                     width: 3)
+          TextField("Short term or Long term?", text: $newCategory, axis: .vertical)
+            .focused($focusField)
+            .font(.largeTitle)
+            .padding()
+            .multilineTextAlignment(.leading)
+            .textFieldStyle(.roundedBorder)
+            .border(Color.red,
+                    width: 3)
           Spacer()
         }
-        HStack {
-          Text("      Category: \(newCategory.type.rawValue)")
-            .multilineTextAlignment(.trailing)
-          Spacer()
-        }
-        HStack {
+       HStack {
           Spacer()
           Toggle("Active in recall", isOn: $newTaskIsCompleted)
             .padding(.horizontal)
@@ -72,15 +75,20 @@ extension AddTaskView: View {
 
 extension AddTaskView {
   private func addTask() {
-      withAnimation {
-        let newTask = Task(title: newTaskTitle,
-                           isCompleted: newTaskIsCompleted,
-                           createdAt: newTaskCreatedAt,
-                           category: newCategory)
-        modelContext.insert(newTask)
-        isAddTaskVisible = false
-        dismiss()
-      }
+    let newTask = Task(title: newTaskTitle,
+                       isCompleted: newTaskIsCompleted,
+                       createdAt: newTaskCreatedAt,
+                       category: Category(name: "Short term",
+                                          type: .shortTerm))
+    if newCategory != "Short term" {
+      newTask.category = Category(name: "Long term", type: .longTerm)
+      //newTask.category!.type = .longTerm
+    }
+    withAnimation {
+      modelContext.insert(newTask)
+      isAddTaskVisible = false
+      dismiss()
+    }
   }
   
 }

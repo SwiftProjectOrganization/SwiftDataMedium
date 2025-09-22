@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		D4E437EA2E81F502000C6834 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D4E437E92E81F4F3000C6834 /* README.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		D47193822E79A81C00CF9B7C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +31,7 @@
 		D47193702E79A81A00CF9B7C /* SwiftDataMedium.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftDataMedium.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D47193812E79A81C00CF9B7C /* SwiftDataMediumTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftDataMediumTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D471938B2E79A81C00CF9B7C /* SwiftDataMediumUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftDataMediumUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4E437E92E81F4F3000C6834 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -88,6 +93,7 @@
 		D47193672E79A81A00CF9B7C = {
 			isa = PBXGroup;
 			children = (
+				D4E437E92E81F4F3000C6834 /* README.md */,
 				D47193722E79A81A00CF9B7C /* SwiftDataMedium */,
 				D47193842E79A81C00CF9B7C /* SwiftDataMediumTests */,
 				D471938E2E79A81C00CF9B7C /* SwiftDataMediumUITests */,
@@ -225,6 +231,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4E437EA2E81F502000C6834 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,10 +10,14 @@ import SwiftData
 
 @Model
 class Category {
-    var type: CategoryEnum
-    var tasks: [Task] = []   // One category can have many tasks
-
-  init(type: CategoryEnum = .shortTerm) {
-        self.type = type
-    }
+  var name: String
+  var type: CategoryEnum
+  
+  var tasks: [Task] = []   // One category can have many tasks
+  
+  init(name: String,
+       type: CategoryEnum = .shortTerm) {
+    self.name = name
+    self.type = type
+  }
 }
